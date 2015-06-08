@@ -95,16 +95,11 @@ html
 
 
       section
-        h2.bullet Just the beginning...
-        br
+        h2 Konfigurasi firewall sederhana menggunakan shorewell
+        p Shorewall adalah salah satu tools firewall pada linux yang berbasiskan iptables. Shorewall terdapat konsep “zone” yang memudahkan kita untuk menentukan policy firewall, daripada kita melakukan konfigurasi secara manual dengan iptables.Maka untukmemudahkan kita, asumsikan saja ada 3 zona yang dapat di definisikan, yaitu : 
         ul
-          li Edit <a href="http://jade-lang.com/">Jade</a> markup in <em>'src/index.jade'</em>
-          li Edit <a href="http://learnboost.github.io/stylus/">Stylus</a> styles in <em>'src/styles/main.styl'</em>
-          li Edit JavaScript in <em>'src/scripts/main.js'</em>
-        br
-        ul
-          li
-            strong Enjoy! :)
-            a(href='http://twitter.com/markdalgleish')  -@markdalgleish
+        li 1. LAN, yaitu jaringan lokal, kita definisikan sebagai zona lok
+        li 2. Internet, yaitu koneksi kita ke internet, kita definisikn sebagai zona net
+        li 3. Komputer Firewall kita secara otomatis bernama zona $FW
 
-    script(src='build/build.js')    
+           
