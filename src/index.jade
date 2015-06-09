@@ -106,5 +106,14 @@ html
       section
         h2 IPTables Overview
         p The power and flexibility of Netfilter is implemented through the iptables interface. This command line tool is similar in syntax to its predecessor, ipchains;.However iptables uses the Netfilter subsystem to enhance network connection,inspection, and processing.
-
+        
+        
+        
+        section
+        h2 Saving and Restoring iptables Rules
+        p Firewall rules are only valid for the time the computer is on; so, if the system is rebooted, the rules are automatically flushed and reset.
+        To save the rules so that they are loaded later, use the following command:
+        ul
+        li /sbin/service iptables save
+        p The rules are stored in the file /etc/sysconfig/iptables and are applied whenever the service is started or restarted, including when the machine is rebooted
            
