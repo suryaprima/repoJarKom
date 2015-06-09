@@ -24,7 +24,7 @@ html
       section
         h2 Introduction 
         ul      
-        p Setting up a good firewall is an essential step to take in securing any modern operating system. Most Linux distributions ship with a few different firewall tools that we can use to configure our firewalls. In this guide, we'll be covering the iptables firewall.
+        p Menyiapkan firewall yang bagus adalah suatu langkah penting untuk mengambil dalam mengamankan sistem operasi modern. Kebanyakan distribusi Linux kapal dengan beberapa alat firewall yang berbeda yang dapat kita gunakan untuk mengkonfigurasi firewall kami. Dalam panduan ini, kami akan meliputi iptables firewall.
          
         p Iptables is a standard firewall included in most Linux distributions by default (a modern variant called nftables will begin to replace it). It is actually a front end to the kernel-level netfilter hooks that can manipulate the Linux network stack. It works by matching each packet that crosses the networking interface against a set of rules to decide what to do.
 
@@ -109,11 +109,5 @@ html
         
         
         
-        section
-        h2 Saving and Restoring iptables Rules
-        p Firewall rules are only valid for the time the computer is on; so, if the system is rebooted, the rules are automatically flushed and reset.
-        To save the rules so that they are loaded later, use the following command:
-        ul
-        li /sbin/service iptables save
-        p The rules are stored in the file /etc/sysconfig/iptables and are applied whenever the service is started or restarted, including when the machine is rebooted
+        
            
