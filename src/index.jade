@@ -22,8 +22,7 @@ html
             li Heriyanto (131110739)
             li Santoso (131110054)
       section
-        h2 Introduction 
-        ul      
+        h2 Introduction              
         p Menyiapkan firewall yang bagus adalah suatu langkah penting untuk mengambil dalam mengamankan sistem operasi modern. Kebanyakan distribusi Linux kapal dengan beberapa alat firewall yang berbeda yang dapat kita gunakan untuk mengkonfigurasi firewall kami. Dalam panduan ini, kami akan meliputi iptables firewall.
          
         p Iptables adalah firewall standar termasuk dalam sebagian besar distribusi Linux secara default (varian modern yang disebut nftables akan mulai menggantinya). Hal ini sebenarnya front end ke kait netfilter kernel-level yang dapat memanipulasi jaringan tumpukan Linux. Ia bekerja dengan mencocokkan masing-masing paket yang melintasi interface jaringan terhadap seperangkat aturan untuk memutuskan apa yang harus dilakukan.
@@ -31,17 +30,16 @@ html
       section
         p Menyiapkan firewall yang bagus adalah suatu langkah penting untuk mengambil dalam mengamankan sistem operasi modern. Kebanyakan distribusi Linux kapal dengan beberapa alat firewall yang berbeda yang dapat kita gunakan untuk mengkonfigurasi firewall kami. Dalam panduan ini, kami akan meliputi iptables firewall.
       section
-        h2 Cara Kerja Firewall
-        ul
+        h2 Cara Kerja Firewall        
         p Semua komunikasi jaringan melewati firewall,Hanya lalu lintas data dari jaringan terpercaya yang diperbolehkan lewat oleh firewall dan Firewall memiliki kemampuan melindungi komputer dari serangan berbahaya yang berasal dari internet
 
       section
         h2 fungsi firewall
         ul
-        li Firewall komputer bertugas menutup port-port tersebut kecuali beberapa port yang perlu tetap terbuka.
-        li Firewall di komputer bertindak sebagai garis pertahanan pertama dalam mencegah semua jenis hacking.
-        li Firewall berguna menjaga informasi rahasia dan berharga agar tidak keluar tanpa diketahui oleh pengguna.
-        li Kegunaan penting lain dari firewall adalah untuk memodifikasi paket data yang datang melalui firewall.
+            li Firewall komputer bertugas menutup port-port tersebut kecuali beberapa port yang perlu tetap terbuka.
+            li Firewall di komputer bertindak sebagai garis pertahanan pertama dalam mencegah semua jenis hacking.
+            li Firewall berguna menjaga informasi rahasia dan berharga agar tidak keluar tanpa diketahui oleh pengguna.
+            li Kegunaan penting lain dari firewall adalah untuk memodifikasi paket data yang datang melalui firewall.
 
 
       section
@@ -54,56 +52,53 @@ html
       section
         h2 Teknik yang digunakan oleh firewall
         ul
-        li 1.Service control (kendali terhadap layanan)
+            li 1.Service control (kendali terhadap layanan)
         berdasarkan tipe-tipe layanan yang digunakan di Internet dan boleh diakses baik untuk kedalam ataupun keluar firewall. 
-        li 2.Direction Control (kendali terhadap arah)
+            li 2.Direction Control (kendali terhadap arah)
         berdasarkan arah dari berbagai permintaan (request) terhadap layanan yang
         akan dikenali dan diijinkan melewati firewall.
-        li 3.User control (kendali terhadap pengguna)
+            li 3.User control (kendali terhadap pengguna)
         berdasarkan pengguna/user untuk dapat menjalankan suatu layanan, artinya ada user yang dapat dan ada yang tidak dapat menjalankan suatu servis,hal ini di karenakan user tersebut tidak di ijinkan untuk melewati firewall.
-        li 4.Behavior Control (kendali terhadap perlakuan)
+            li 4.Behavior Control (kendali terhadap perlakuan)
         berdasarkan seberapa banyak layanan itu telah digunakan. Misal, firewall dapat memfilter email untuk menanggulangi/mencegah spam.
 
 
       section
         h2 tipe-tipe firewall
         ul
-        li 1.Packet Filtering Router
-        Filtering diaplikasikan dengan cara mengatur semua packet IP baik yang menuju, melewati atau akan dituju oleh packet tersebut.pada tipe ini packet tersebut akan diatur apakah akan di terima dan diteruskan.
-        li 2.Application-Level Gateway
-        Application-level Gateway yang biasa juga di kenal sebagai proxy server yang berfungsi untuk memperkuat/menyalurkan arus aplikasi.
-        li 3.Circuit-level Gateway
-        Tipe ketiga ini dapat merupakan sistem yang berdiri sendiri , atau juga dapat merupakan fungsi khusus yang terbentuk dari tipe application-level gateway.tipe ini tidak mengijinkan koneksi TCP end to end (langsung)
+            li 1.Packet Filtering Router
+        p Filtering diaplikasikan dengan cara mengatur semua packet IP baik yang menuju, melewati atau akan dituju oleh packet tersebut.pada tipe ini packet tersebut akan diatur apakah akan di terima dan diteruskan.
+            li 2.Application-Level Gateway
+        p Application-level Gateway yang biasa juga di kenal sebagai proxy server yang berfungsi untuk memperkuat/menyalurkan arus aplikasi.
+            li 3.Circuit-level Gateway
+        p Tipe ketiga ini dapat merupakan sistem yang berdiri sendiri , atau juga dapat merupakan fungsi khusus yang terbentuk dari tipe application-level gateway.tipe ini tidak mengijinkan koneksi TCP end to end (langsung)
 
 
       section
         h2 Cara mengatur Firewall Linux
-        li Pertama silahkan buka terminal Ubuntu anda dan silahkan ketik :
-        li Untuk menonaktifkan firewall :
-        li sudo ufw disable
-        li Untuk mengaktifkan firewall :
-        li sudo ufw enable
-        li Untuk mengecek status firewall :
-        li sudo ufw status
-        li Untuk mengatur default policy Deny :
-        li sudo ufw default deny
-        li Untuk mengatur default policy Allow :
-        li sudo ufw default allow
+        ul
+            li Pertama silahkan buka terminal Ubuntu anda dan silahkan ketik :
+            li Untuk menonaktifkan firewall :
+            li sudo ufw disable
+            li Untuk mengaktifkan firewall :
+            li sudo ufw enable
+            li Untuk mengecek status firewall :
+            li sudo ufw status
+            li Untuk mengatur default policy Deny :
+            li sudo ufw default deny
+            li Untuk mengatur default policy Allow :
+            li sudo ufw default allow
 
 
       section
         h2 Konfigurasi firewall sederhana menggunakan shorewell
         p Shorewall adalah salah satu tools firewall pada linux yang berbasiskan iptables. Shorewall terdapat konsep “zone” yang memudahkan kita untuk menentukan policy firewall, daripada kita melakukan konfigurasi secara manual dengan iptables.Maka untukmemudahkan kita, asumsikan saja ada 3 zona yang dapat di definisikan, yaitu : 
         ul
-        li 1. LAN, yaitu jaringan lokal, kita definisikan sebagai zona lok
-        li 2. Internet, yaitu koneksi kita ke internet, kita definisikn sebagai zona net
-        li 3. Komputer Firewall kita secara otomatis bernama zona $FW
+            li 1. LAN, yaitu jaringan lokal, kita definisikan sebagai zona lok
+            li 2. Internet, yaitu koneksi kita ke internet, kita definisikn sebagai zona net
+            li 3. Komputer Firewall kita secara otomatis bernama zona $FW
         
         
       section
         h2 IPTables Overview
-        p Kekuatan dan fleksibilitas Netfilter diimplementasikan melalui antarmuka iptables. Alat baris perintah ini mirip dengan sintaks pendahulunya, ipchains; .Namun iptables menggunakan subsistem Netfilter untuk meningkatkan koneksi jaringan, inspeksi, dan pengolahan.
-        
-        
-        
-           
+        p Kekuatan dan fleksibilitas Netfilter diimplementasikan melalui antarmuka iptables. Alat baris perintah ini mirip dengan sintaks pendahulunya, ipchains; .Namun iptables menggunakan subsistem Netfilter untuk meningkatkan koneksi jaringan, inspeksi, dan pengolahan.                            
